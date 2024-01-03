@@ -34,10 +34,14 @@ app.use('/api/messages', messageRoutes);
 
 const PORT = process.env.PORT || 8000;
 
+
 server.listen(PORT, () => {
     console.log(`Server started on ${PORT}`);
 });
 
+app.get('/',(req,res)=>{
+    res.send('api is working...');
+})
 global.onlineUsers = new Map();
 
 io.on('connection', (socket) => {
